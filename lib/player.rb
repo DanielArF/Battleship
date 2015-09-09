@@ -11,20 +11,7 @@ class Player
     @my_board.grid[coord] = "s" if @my_board.grid[coord] == "w"
   end
 
-   # def place_ship2(coord)
-    #@my_board.grid[coord] = "s" if @my_board.grid[coord] == "w"
-    #@my_board.grid[coord].next = "s" if @my_board.grid[coord].next == "w"
-  #end
-
-  def shoot_at(coord)
-    if @my_board.grid[coord] == 's'
-      @my_board.grid[coord] = 'hit'
-    else
-      @my_board.grid[coord] = 'miss'
-    end
-  end
-
-  def shoot(player,coord)
+  def shoot_at(player,coord)
     oppboard = (player).my_board
     if oppboard.grid[coord] == 's'
       oppboard.grid[coord] = 'hit'
@@ -36,5 +23,3 @@ class Player
   end
 
 end
-
-#När player skapas bör vi skapa 2 st grids - my_grid och opponent_grid i def initialize
