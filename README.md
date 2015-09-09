@@ -32,3 +32,5 @@ Details of the latest version can be found on GitHub under (https://github.com/g
 ------------------------
 
 Please let me know what you thought of borisbikes, all feedback are welcome. Do you have ideas of improvements and new features? Please feel free to contribute to the project using GitHub.
+
+-Gustaf, Daniel, and Chris
