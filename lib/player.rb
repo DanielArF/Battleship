@@ -8,17 +8,21 @@ class Player
   end
 
   def place_ship(coord)
-    @my_board.grid[coord] = "s" if @my_board.grid[coord] == "w"
+    if @my_board.grid[coord] == "w"
+       @my_board.grid[coord] = "s"
+    else
+      'cant do that.'
+    end
   end
 
   def shoot_at(player,coord)
     oppboard = (player).my_board
-    if oppboard.grid[coord] == 's'
-      oppboard.grid[coord] = 'hit'
-      @opponents_board.grid[coord] = 'hit'
-    else
-      oppboard.grid[coord] = 'miss'
-      @opponents_board.grid[coord] = 'miss'
+      if oppboard.grid[coord] == 's'
+       oppboard.grid[coord] = 'hit'
+       @opponents_board.grid[coord] = 'hit'
+     else
+        oppboard.grid[coord] = 'miss'
+        @opponents_board.grid[coord] = 'miss'
     end
   end
 

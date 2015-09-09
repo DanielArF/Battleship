@@ -15,6 +15,10 @@ describe 'Player' do
     expect(subject.my_board.grid).to include :a1 => "s"
   end
 
+   it 'ship cant be placed outside board' do
+    expect(subject.place_ship(:k1)).to eq "cant do that."
+  end
+
   it 'can receive a hit' do
     subject.place_ship(:a1)
     opponent.shoot_at(subject,:a1)
@@ -31,5 +35,4 @@ describe 'Player' do
   	subject.shoot_at(opponent,:a1)
   	expect(subject.opponents_board.grid).to include :a1 => "miss"
   end
-
 end
