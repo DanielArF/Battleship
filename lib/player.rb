@@ -5,6 +5,10 @@ class Player
   def initialize
     @my_board = Grid.new
     @opponents_board = Grid.new
+    @ships = [Ship.new("A"), Ship.new("B"), Ship.new("S"), Ship.new("C"), Ship.new("P")]
+
+    #make 5 ships and store in this array
+    # s1 = Ship.new("B")
   end
 
   def place_ship(coord)
