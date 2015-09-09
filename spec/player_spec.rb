@@ -10,8 +10,12 @@ describe 'Player' do
     expect(subject.my_board).to be_kind_of Grid
   end
 
-  it 'can place ship' do
-    subject.place_ship(:a1)
+  xit 'can place ship' do
+    subject.stub(:gets) { "phrase\n" }
+    subject.should_receive(:puts).with("Give me your coordinates")
+    subject.stub(:gets) { "phrase\n" }
+    subject.should_receive(:puts).with("Choose direction H or V")
+    subject.place_ships
     expect(subject.my_board.grid).to include :a1 => "s"
   end
 
