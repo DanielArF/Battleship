@@ -11,11 +11,7 @@ describe 'Player' do
   end
 
   xit 'can place ship' do
-    subject.stub(:gets) { "phrase\n" }
-    subject.should_receive(:puts).with("Give me your coordinates")
-    subject.stub(:gets) { "phrase\n" }
-    subject.should_receive(:puts).with("Choose direction H or V")
-    subject.place_ships
+
     expect(subject.my_board.grid).to include :a1 => "s"
   end
 

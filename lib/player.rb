@@ -34,8 +34,34 @@ class Player
       end
   end
 
-  def can_place? (coord, direction, size)
-    true
+  def can_place? (coord, direction, ship)
+    can_place = water?(coord)
+      if direction == "R"
+        current_coord = coord
+        for i in (1..ship.size)
+          next_coord = get_right_coord(current_coord)
+          if !water?(current_coord)
+            can_place = false
+          end
+          current_coord = next_coord
+        end
+      else
+        # loop callig get_down_coord
+      end
+    can_place
+  end
+
+  def water?(coord)
+    @my_board.grid[coord.to_sym] == "w" ? true : false
+  end
+
+  def get_right_coord(coord)
+    l = (coord[0].codepoints.first + 1).chr
+    coord.to_s.gsub(coord[0], l).to_sym
+  end
+
+   def get_down_coord(coord)
+    coord.next.to_sym
   end
 
 
