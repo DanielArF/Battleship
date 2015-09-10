@@ -1,3 +1,6 @@
+require './lib/grid.rb'
+require './lib/ship.rb'
+
 class Player
     attr_accessor :my_board, :opponents_board, :ships
 
@@ -31,7 +34,7 @@ class Player
     else
       puts 'Cant place boat here, try again.'
       place(s)
-      end
+    end
   end
 
   def can_place? (coord, direction, ship)
@@ -40,13 +43,23 @@ class Player
         current_coord = coord
         for i in (1..ship.size)
           next_coord = get_right_coord(current_coord)
-          if !water?(current_coord)
-            can_place = false
-          end
+            if !water?(current_coord)
+              can_place = false
+            end
+          current_coord = next_coord
+        end
+      elsif
+        direction == "D"
+          current_coord = coord
+        for i in (1..ship.size)
+          next_coord = get_down_coord(current_coord)
+            if !water?(current_coord)
+              can_place = false
+            end
           current_coord = next_coord
         end
       else
-        # loop callig get_down_coord
+        can_place = false
       end
     can_place
   end

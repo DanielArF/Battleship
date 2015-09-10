@@ -10,13 +10,14 @@ describe 'Player' do
     expect(subject.my_board).to be_kind_of Grid
   end
 
-  xit 'can place ship' do
-
-    expect(subject.my_board.grid).to include :a1 => "s"
+  it 'can place ship' do
+    ship = subject.ships.pop
+    expect(subject.can_place?(:a1, "D", ship)).to eq true
   end
 
    it 'ship cant be placed outside board' do
-    expect(subject.place_ship(:k1)).to eq "cant do that."
+    ship = subject.ships.pop
+    expect(subject.can_place?(:k1, "D", ship)).to eq false
   end
 
   it 'can receive a hit' do
