@@ -13,6 +13,25 @@ describe Grid do
   	expect(subject.grid).to include :a1 => "w"
   end
 
+    it 'grid is populated with coodinate keys' do
+    [*:a..:b].each do |k|
+      [*1..2].each do |v|
+        key = [k, v].join('')
+        expect(subject.grid).to include key.to_sym
+      end
+    end
+  end
+
+
+  it 'grid coodinate keys are set to water' do
+    [*:a..:b].each do |k|
+      [*1..2].each do |v|
+        key = [k, v].join('')
+        expect(subject.grid[key.to_sym]).to eq 'w'
+      end
+    end
+  end
+
 
 
 end
