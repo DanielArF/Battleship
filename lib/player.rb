@@ -13,8 +13,6 @@ class Player
     # s1 = Ship.new("B")
   end
 
-
-
   def place_ships
     @ships.each do |s|
       place(s)
@@ -76,8 +74,6 @@ class Player
    def get_down_coord(coord)
     coord.next.to_sym
   end
-
-
 
   def shoot_at(player,coord)
     oppboard = (player).my_board
